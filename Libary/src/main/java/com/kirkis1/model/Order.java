@@ -1,38 +1,38 @@
 package com.kirkis1.model;
 
 public class Order {
-    long id;
-    String address;
-    OrderStatus status;
-    String courier;
+    private long id;
+    private String address;
+    private OrderStatus status;
+    private String courier;
 
-    Order (long id, String address){
+    public Order (long id, String address){
         this.id = id;
         this.address = address;
         this.status = OrderStatus.NEW;
     }
 
-    void setStatus (OrderStatus newStatus){
+    public void setStatus (OrderStatus newStatus){
         this.status=newStatus;
     }
 
-    void setCourier (String newCourier){
+    public void setCourier (String newCourier){
         this.courier= newCourier;
     }
 
-    long getId (){
+    public long getId (){
         return id;
     }
 
-    String getAddress (){
+    public String getAddress (){
         return address;
     }
 
-    OrderStatus getStatus (){
+    public OrderStatus getStatus (){
         return status;
     }
 
-    String getCourier (){
+    public String getCourier (){
         return courier;
     }
 
@@ -45,5 +45,6 @@ public class Order {
                 ", courier='" + courier + '\'' +
                 '}';
     }
+
 }
 
