@@ -1,6 +1,7 @@
 package com.kirkis1;
 
 import com.kirkis1.model.Order;
+import com.kirkis1.model.OrderStatus;
 
 public class OrderBook {
     private Order[] orders;
@@ -32,5 +33,29 @@ public class OrderBook {
             }
         }
         return null;
+    }
+    public boolean assign (long id, String courier){
+        Order order=find(id);
+        if (order==null){
+            return false;
+        }
+        if (order.getStatus()!= OrderStatus.NEW){
+            return false;
+        }
+        order.setCourier(courier);
+        order.setStatus(OrderStatus.ASSIGNED);
+        return true;
+
+    }
+    public boolean deliver (long id){
+        Order order = find(id);
+        if (order==null){
+            return false;
+        }
+        if (order.getStatus()!=OrderStatus.ASSIGNED){
+            return false;
+        }
+        order.setStatus(OrderStatus.DELIVERED);
+        return true;
     }
 }
