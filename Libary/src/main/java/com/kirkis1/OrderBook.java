@@ -58,4 +58,23 @@ public class OrderBook {
         order.setStatus(OrderStatus.DELIVERED);
         return true;
     }
+    public int countByStatus(OrderStatus status){
+        int countStatus=0;
+        for (int i = 0; i < count; i++) {
+            if (orders[i].getStatus()==status){
+                countStatus++;
+            }
+        }
+        return countStatus;
+    }
+    public Order[] byStatus(OrderStatus status){
+        Order [] ordersStatus = new Order[countByStatus(status)];
+        for (int i = 0, j=0; i < count; i++) {
+            if (orders[i].getStatus()==status){
+                ordersStatus[j++]=orders[i];
+            }
+        }
+        return ordersStatus;
+
+    }
 }

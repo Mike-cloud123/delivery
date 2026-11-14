@@ -3,6 +3,8 @@ package com.kirkis1;
 import com.kirkis1.model.Order;
 import com.kirkis1.model.OrderStatus;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main (String[] args){
         Order firstOrder = new Order(1, "Новосибирск");
@@ -35,7 +37,10 @@ public class Main {
 
         System.out.println(secondOrder);
         Order found = new Order(2, "Москва");
-        System.out.println(found==secondOrder);
+        System.out.println(found.equals(secondOrder));
+
+        System.out.println(orderBook.countByStatus(OrderStatus.NEW));
+        System.out.println(Arrays.toString(orderBook.byStatus(OrderStatus.DELIVERED)));
 
 
 
